@@ -1,0 +1,103 @@
+:root {
+  --color-primary:    #e63946;    /* rojo mariscos */
+  --color-dark:       #111111;
+  --color-white:      #ffffff;
+  --color-gray:       #cccccc;
+  --transition:       all 0.8s ease;
+}
+.footer{
+  background:#000;
+  color:#aaa;
+  text-align:center;
+  padding:60px 20px 40px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ===================== */
+/* Línea con logo */
+/* ===================== */
+
+.footer-divider{
+  position:relative;
+  margin-bottom:10px;
+}
+
+.footer-divider::before{
+  content:"";
+  position:absolute;
+  top:45%;
+  left:0;
+  width:100%;
+  height:2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #d4af37,
+    #f5e6a8,
+    #d4af37,
+    transparent
+  );
+}
+
+.footer-logo{
+  position:relative;
+  background:#000;
+  padding:0 25px;
+  display:inline-block;
+}
+
+.footer-logo img{
+  height:50px;
+  width:auto;
+}
+
+/* ===================== */
+/* Redes sociales */
+/* ===================== */
+
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin-bottom:15px;
+}
+
+.socials a{
+  color:#bbb;
+  font-size:18px;
+  transition:all .35s ease;
+}
+
+.socials a:hover{
+  color:#c7a16b;
+  transform:translateY(-3px);
+}
+
+/* ===================== */
+/* Texto */
+/* ===================== */
+
+.footer-text p{
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+/* ===================== */
+/* Responsive */
+/* ===================== */
+
+@media (max-width:600px){
+
+  .footer{
+    padding:50px 20px;
+  }
+
+  .footer-logo img{
+    height:35px;
+  }
+
+  .socials{
+    gap:18px;
+  }
+
+}

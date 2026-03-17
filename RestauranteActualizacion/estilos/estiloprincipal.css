@@ -1,0 +1,539 @@
+--------GLOBALES-----------------
+:root {
+  --color-primary:    #e63946;    /* rojo mariscos */
+  --color-dark:       #000000;
+  --color-white:      #ffffff;
+  --color-gray:       #cccccc;
+  --transition:       all 0.4s ease;
+  --font-primary: 'Playfair Display', serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+   background: var(--color-dark);
+
+}
+
+img{
+    max-width: 100%;
+    display: block;   /* elimina espacios fantasmas */
+    border: 0;
+}
+
+/* Estilo de foto principal*/
+
+
+.fotoPrincipal{
+  width: 100vw;        /* ancho total de la pantalla */
+    height: 100vh;       /* alto total de la pantalla */
+    object-fit: cover;
+    
+}
+
+/* ===============================
+   SECCIÓN MAPA
+================================= */
+.map-section {
+  display: flex;
+  width: 100%;
+  min-height: auto;          /* depende del contenido */
+  background-color: #000;
+  gap: 10px;                 /* separación entre columnas */
+  align-items: flex-start;    /* todo alineado arriba */
+  padding: 40px 20px;         /* menos espacio superior e inferior */
+  box-sizing: border-box;
+}
+
+/* columnas */
+.map-section .col {
+  display: flex;
+  justify-content: center;
+}
+
+/* columnas en blanco */
+.map-section .blank {
+  flex: 1; /* 1/6 */
+}
+
+/* columna del mapa 2/6 + 3/6 */
+.map-section .map-col {
+  flex: 2;
+  align-items: flex-start; /* mapa pegado arriba */
+}
+
+/* mover mapa ligeramente hacia la izquierda */
+.map-section .map-col .one-div {
+  transform: translateX(-40px) translateZ(20px); /* más compacto */
+  max-height: 300px; /* altura máxima más reducida */
+}
+
+/* Wrapper para desplazar el mapa hacia la izquierda */
+.map-wrapper {
+  transform: translateX(-50px); /* menos desplazamiento */
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* columna de imagen + texto 5/6 + 6/6 */
+.map-section .img-col {
+  flex: 2;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* wrapper de imagen y texto */
+/* contenedor imagen + titulo */
+.img-wrapper{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* imagen */
+.direccion-img {
+  width: 80px; 
+  max-width: 300px;
+  border-radius: 15px;
+  animation: rot 2s infinite ease;
+}
+
+
+/* caja del titulo */
+.tapias-box{
+  display: flex;
+  flex-direction: column;
+  min-width: max-content; /* asegura espacio suficiente */
+}
+
+/* texto TAPIA'S */
+.tapias-title{
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: var(--font-primary);
+  margin: 0;
+  white-space: nowrap; /* evita que se rompa la palabra */
+}
+
+/* linea blanca debajo */
+/* linea */
+.tapias-line{
+ width: 100%;
+  max-width: 420px;
+  height: 3px;
+  margin: 0px 0 5px 0;
+  border-radius: 2px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    #d4af37,
+    #f5e6a8,
+    #d4af37,
+    transparent
+  );
+}
+
+/* texto direccion */
+.direccion-text {
+  color: #e0cfb3;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  margin-top: 15px;
+}
+
+/* ===============================
+   TARJETA DEL MAPA
+================================= */
+.one-div {
+  width: 100%;
+  max-width: 600px; /* más compacto */
+  height: 300px;    /* altura reducida */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2), inset 0 0 50px rgba(0,0,0,0.2);
+  transform-style: preserve-3d;
+  animation: rot 2s infinite ease;
+  transition: 1.5s;
+}
+
+.one-div:hover {
+  box-shadow: 0 0 15px 15px #e0cfb3, inset 5px 5px 5px rgba(102,102,102,0.5);
+}
+
+/* mapa dentro de la tarjeta */
+.mapa {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  transform: translateZ(20px);
+}
+
+.mapa iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* animación flotante de la tarjeta */
+@keyframes rot {
+  0% { transform: rotateX(-15deg) translateY(0); }
+  50% { transform: rotateX(-15deg) translateY(-5px); } /* menos movimiento */
+  100% { transform: rotateX(-15deg) translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .map-section {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .map-section .map-col,
+  .map-section .img-col {
+    flex: unset;
+    width: 100%;
+  }
+
+  .one-div {
+    max-width: 100%;
+    height: 250px;
+  }
+
+  .direccion-img {
+    max-width: 90%;
+  }
+}
+
+/*card con animacion*/
+/* CARD CON ANIMACIÓN */
+.card-container {
+  position: relative;
+  width: 100vw;              /* ocupa todo el ancho de la ventana */
+  max-width: 100%;           /* opcional, evita overflow */
+  height: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+/* FRONT CONTENT CON IMAGEN */
+.card .front-content {
+  width: 100%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  background-image: url('/imagenes/fondo_tarjeta.jpg'); /* tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: inherit;
+  transition: transform 0.6s cubic-bezier(0.23,1,0.32,1);
+}
+
+.card .front-content p {
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  margin: 0;
+
+  background: linear-gradient(-45deg, #8d0000 0%, #0000aa 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  position: relative;
+  z-index: 2;
+
+  transition: opacity 0.6s cubic-bezier(0.23,1,0.32,1);
+}
+
+/* CONTENT (detalles que aparecen al hover) */
+.card .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+
+  background-image: url('/imagenes/fondo_luces.jpg'); /* tu fondo secundario */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #e0cfb3;
+  padding: 20px;
+  line-height: 1.5;
+  border-radius: 5px;
+
+  pointer-events: none;
+  transform: translateY(96%);
+  transition: transform 0.6s cubic-bezier(0.23,1,0.32,1);
+}
+
+.card .content .heading {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.heading_hijo {
+  font-size: 20px;
+}
+
+/* HOVER EFECTOS */
+.card:hover .content {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.card:hover .front-content {
+  transform: translateY(-30%) scale(1.05); /* zoom suave al hover */
+}
+
+.card:hover .front-content p {
+  opacity: 0;
+}
+
+
+
+/* galeria de fotos */
+.carrusel{
+  position: relative;
+  width: 100%;
+  margin: 60px auto;
+}
+
+.carrusel_Contenedor{
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.member{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:600px;
+  height: 500px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%) scale(0.8);
+  
+}
+
+.member img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  
+}
+
+
+.member.active{
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 3;
+  opacity: 1;
+}
+
+.member.left{
+  transform: translate(-130%, -50%) scale(0.8);
+  opacity: 0.6;
+  z-index: -2;
+  filter: grayscale(70%);
+}
+
+.member.right{
+  transform: translate(30%, -50%) scale(0.8);
+  opacity: 0.6;
+  z-index: -2;
+  filter: grayscale(70%);
+}
+
+.boton{
+  position: absolute;
+  top: 45%;
+  background: rgb(121, 108, 108);
+  padding: 10px;
+  border-radius: 20%;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 999;
+  color: rgb(165, 179, 105);
+}
+
+.boton_Izq{
+  left: 15px;
+}
+
+.boton_Der{
+  right: 35px;
+}
+
+/* Tabla  cumpleaños*/
+/* ===============================
+   SECCIÓN CUMPLEAÑOS
+================================= */
+.cumple-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 30px 10%;
+  background: #111;
+}
+
+/* TEXTO */
+.texto-cumple {
+  flex: 1;
+  color: rgb(224,207,179);
+}
+
+.texto-cumple h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.texto-cumple p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* IMAGEN + BOTÓN */
+.imagen-cumple {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.imagen-cumple img {
+  width: 300px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px 5px rgb(216,200,174);
+}
+
+.imagen-cumple img:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   BOTÓN
+================================= */
+.btn-reservar {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 500px;
+  background: #66ff66;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-reservar:hover {
+  background: #e0cfb3;
+  color: black;
+}
+/* Model de reservar*/
+.modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  z-index: 9999; /* encima de todo */
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  overflow: auto;
+}
+
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+  position: absolute;
+  top: 10px; right: 14px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+select, .btn-encontrar {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn-encontrar {
+  background-color: #d62b28;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-encontrar:hover {
+  background-color: #b22220;
+}
+
+
+/* ===============================
+   RESPONSIVE (MÓVIL)
+================================= */
+@media (max-width: 900px) {
+  .cumple-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texto-cumple p {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/estilos/estiloprincipal.css">
+  <link rel="stylesheet" href="/estilos/estilofooter.css">
+  <script src="principal.js"></script>
+  <link rel="icon" type="image/png" href="/imagenes/title.png">
+  <title>TAPIA´S</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="headerPrincipal"></div>
+
+
+  <!-- Main -->
+  <main>
+    <a href="/principal.html">
+    <img src="imagenes/fotoPrincipal.jpeg" alt="Mi Gusto Es" class="fotoPrincipal">
+    </a>
+
+    <!-- Maps -->
+
+    <div class="map-section"> <!-- espacio 1/6 en blanco -->
+      <div class="col blank"></div> <!-- mapa 2/6 + 3/6 -->
+      <div class="col map-col">
+        <div class="map-wrapper"> <!-- 🔹 wrapper para desplazar -->
+          <div class="one-div">
+            <div class="mapa"> <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.797719014843!2d-99.6099408!3d19.2562362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd8bb78c462c4f%3A0x6b560fd84c062cfb!2sTAPIA'S%20Restaurante!5e0!3m2!1ses!2smx!4v1690000000000!5m2!1ses!2smx"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe> </div>
+          </div>
+        </div>
+      </div> 
+      <!-- imagen + texto 5/6 + 6/6 -->
+     <div class="col img-col">
+
+  <div class="img-wrapper">
+    
+    <img src="/imagenes/imagen_ubicacion.jpg" alt="Toluca" class="direccion-img">
+
+    <div class="tapias-box">
+      <h2 class="tapias-title">TAPIA´S</h2>
+    </div>
+
+  </div>
+
+  <div class="tapias-line"></div>
+
+  <p class="direccion-text">
+    Dirección: TAPIA'S Restaurante, Mariano Matamoros 703, San Mateo, 52140 Metepec, Méx.
+  </p>
+
+</div>
+
+    </div>
+    </section>
+
+
+    <!--Card -->
+    <div class="card-container">
+      <div class="card">
+        <!-- FRONT CONTENT con imagen de fondo -->
+        <div class="front-content">
+          <p>.</p>
+        </div>
+
+        <!-- CONTENIDO que aparece al hacer hover -->
+        <div class="content">
+          <p class="heading">TAPIA´S</p>
+          <p class="heading_hijo">
+            Disfruta una experiencia gastronómica inigualable en compañía de tus seres queridos.
+            Tapia’s te ofrece una increíble variedad de platillos. Con una increíble ubicación,
+            acceso a nuestro estacionamiento y con un entorno inigualable, perfecto para disfrutar
+            en la mejor de la zona en Metepec.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--Galeria de fotos-->
+    <div class="carrusel">
+      <button class="boton boton_Izq"><</button>
+
+          <div class="carrusel_Contenedor">
+            <div class="member">
+              <img src="imagenes/coctelChico.jpg" alt="">
+            </div>
+            <div class="member">
+              <img src="imagenes/alambre.jpg" alt="">
+            </div>
+            <div class="member">
+              <img src="imagenes/sopaDeMariscos.jpg" alt="">
+            </div>
+            <div class="member">
+              <img src="imagenes/tostadaCamaron.jpg" alt="">
+            </div>
+            <div class="member">
+              <img src="imagenes/pastel.jpg" alt="">
+            </div>
+          </div>
+
+          <button class="boton boton_Der">></button>
+    </div>
+
+    <!--tabla con parrafos -->
+    <section class="cumple-section">
+
+      <!-- Columna texto -->
+      <div class="texto-cumple">
+        <h2>¡Celebra tu cumpleaños con nosotros!</h2>
+        <p>
+          Festeja el día más especial del año con nosotros en compañía de toda tu familia
+          y tus seres queridos con platillos de alta calidad, servidos con la misma pasión
+          y entrega, creando experiencias a medida para sus eventos.
+
+          Tapia´s es el mejor lugar para reuniones corporativas, reuniones con amigos y familia
+          en el corazón de Metepec.
+        </p>
+      </div>
+
+      <!-- Columna imagen + botón -->
+      <div class="imagen-cumple">
+        <img src="imagenes/cumpleaños.jpg" alt="Ver menú">
+        <!-- Botón que abre modal -->
+        <button id="openModalBtn" type="button" class="btn-reservar">Reservar</button>
+      </div>
+
+    </section>
+
+    <!-- Modal de reservar-->
+
+
+    <!-- Modal -->
+    <div id="modal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span id="closeModalBtn" class="close">&times;</span>
+        <h3>Encuentra una mesa</h3>
+
+        <form id="reservaForm" action="reservar/reservar.html" method="GET">
+
+  <input type="date" name="fecha" class="reserva-ui-input" required>
+
+  <input type="time" name="hora" class="reserva-ui-input" required>
+
+  <select name="personas" class="reserva-ui-input" required>
+    <option value="">Personas</option>
+    <option value="1-2">1 A 2 PERSONAS</option>
+    <option value="3-5">3 A 5 PERSONAS</option>
+    <option value="6-8">6 A 8 PERSONAS</option>
+    <option value="9+">MÁS DE 8 PERSONAS</option>
+  </select>
+
+  <button type="submit" class="btn-encontrar">
+    Encuentra una mesa
+  </button>
+
+</form>
+      </div>
+    </div>
+
+
+  </main>
+
+
+
+
+
+  <!-- Footer -->
+  <div id="footer"></div>
+</body>
+
+</html>

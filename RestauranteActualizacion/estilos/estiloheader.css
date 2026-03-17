@@ -1,0 +1,237 @@
+/* =============================== VARIABLES ================================= */
+:root {
+  --color-dark: #000000;
+  --color-white: #ffffff;
+  --color-gray: #cccccc;
+  --transition: all 0.4s ease;
+}
+
+/* =============================== RESET GENERAL ================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* =============================== HEADER ================================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10004;
+  padding: 0.2rem 0;
+  background: var(--color-dark);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+}
+
+/* =============================== LOGO IMAGEN + TEXTO ================================= */
+/* ===============================
+   LOGO COMPLETO (imagen + texto juntos)
+================================= */
+.logo-completo {
+  display: flex;
+  align-items: center;
+  gap: 0.01rem; /* espacio entre imagen y texto */
+  text-decoration: none;
+  flex-shrink: 0; /* que no se encoja */
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+  max-width: 320px;
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  mix-blend-mode: difference;
+}
+
+/* Texto del logo */
+.logo-text {
+  color: rgb(230, 148, 110);
+  font-family: 'Playfair Display', serif;
+  text-align: left;
+  user-select: none;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.8rem;
+}
+
+.logo-text .top {
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.1em;
+  font-family: 'Playfair Display', serif;
+}
+
+.logo-text h1 {
+  font-size: 30px;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px rgba(247, 245, 245, 0.4);
+  line-height: 1;
+  font-family: 'Playfair Display', serif;
+}
+
+.apostrophe {
+  font-size: 1rem;
+  vertical-align: super;
+}
+.logo-text .divider {
+  width: 100%;
+  max-width: 420px;
+  height: 3px;
+  margin: 0px 0 5px 0;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #d4af37,
+    #f5e6a8,
+    #d4af37,
+    transparent
+  );
+}
+
+.logo-text .bottom {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  user-select: none;
+  font-family: 'Playfair Display', serif;
+}
+
+/* =============================== MENÚ DESKTOP ================================= */
+.main-nav {
+  position: static;
+  /* para que fluya con flex */
+  width: auto;
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  justify-content: flex-start;
+}
+
+.nav-link,
+.nav-link:link,
+.nav-link:visited {
+  color: var(--color-white) !important;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #e0cfb3 !important;
+}
+
+/* =============================== BOTÓN HAMBURGUESA ================================= */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 22px;
+  position: relative;
+}
+
+.menu-toggle span {
+  background: var(--color-white);
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  transition: var(--transition);
+}
+
+.menu-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.menu-toggle span:nth-child(2) {
+  top: 9px;
+}
+
+.menu-toggle span:nth-child(3) {
+  top: 18px;
+}
+
+/* =============================== RESPONSIVE ================================= */
+@media (max-width: 991px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-dark);
+    padding: 2rem 5%;
+    flex-direction: column;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1.8rem;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.4rem;
+  }
+
+  /* Reduce tamaño texto logo en móvil */
+  .logo-text h1 {
+    font-size: 40px;
+  }
+
+  .logo-text .divider {
+    width: 120px;
+  }
+
+  .logo-text .bottom {
+    font-size: 11px;
+  }
+}

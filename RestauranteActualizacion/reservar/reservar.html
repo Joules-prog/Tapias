@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESERVAR</title>
+    <link rel="stylesheet" href="reservarestilo.css">
+    <link rel="stylesheet" href="/estilos/estiloheader.css">
+    <link rel="stylesheet" href="/estilos/estilofooter.css">
+    <link rel="icon" type="image/png" href="/imagenes/title.png">
+</head>
+<body>
+  <div id="headerPrincipal"></div>
+
+  <main>
+    <section class="reserva-ui-wrapper">
+      <div class="reserva-ui-card">
+
+        <div class="reserva-ui-img-box">
+          <img src="/imagenes/fotoPrincipal.jpeg" 
+               alt="restaurant food" class="reserva-ui-img">
+        </div>
+
+        <div class="reserva-ui-content">
+          <h2 class="reserva-ui-subtitle">Reserva ahora</h2>
+          <h1 class="reserva-ui-title">Aparta tu mesa</h1>
+
+          <!-- FORMULARIO AGREGADO -->
+          <form class="reserva-ui-form">
+            <input type="email" name="correo" class="reserva-ui-input" placeholder="Tu correo electrónico" required>
+
+            <input type="date" name="fecha" class="reserva-ui-input" required>
+
+            <input type="time" name="hora" class="reserva-ui-input" required>
+
+            <select name="personas" class="reserva-ui-input" required>
+              <option value="" disabled selected>Selecciona personas</option>
+              <option value="1-2">1 a 2 personas</option>
+              <option value="3-5">3 a 5 personas</option>
+              <option value="6-8">6 a 8 personas</option>
+              <option value="9+">Más de 8 personas</option>
+            </select>
+
+            <button type="submit" class="reserva-ui-btn">ENVIAR RESERVACIÓN</button>
+          </form>
+
+          <p class="reserva-ui-text">
+            Nos pondremos en contacto para confirmar tu reserva.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script src="reservarscript.js"></script>
+</body>
+</html>
